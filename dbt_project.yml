@@ -34,4 +34,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbtlearn:
     +materialized: view  # this means that the default is view!!
+    dim:
+      +materialized: table # default materialization for dim folder is table!!
 
