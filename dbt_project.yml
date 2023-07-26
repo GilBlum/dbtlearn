@@ -36,4 +36,7 @@ models:
     +materialized: view  # this means that the default is view!!
     dim:
       +materialized: table # default materialization for dim folder is table!!
+    src:
+      +materialized: ephemeral  # default materialization for dim folder is CTE!!
+
 
