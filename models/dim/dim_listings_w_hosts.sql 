@@ -1,5 +1,5 @@
 WITH
-1 AS (
+l AS (
 SELECT *
     FROM
         {{ ref('dim_listings_cleansed') }}
@@ -9,15 +9,15 @@ SELECT *
     FROM {{ ref('dim_hosts_cleansed') }}
 )
 SELECT
-    1.listing_id,
-    1.listing_name,
-    1.room_type,
-    1.minimum_nights,
-    1.price,
-    1.host_id,
+    l.listing_id,
+    l.listing_name,
+    l.room_type,
+    l.minimum_nights,
+    l.price,
+    l.host_id,
     h.host_name,
     h.is_superhost as host_is_superhost,
-    1.created_at,
-    GREATEST(1.updated_at, h.updated_at) as updated_at
-FROM 1
-LEFT JOIN h ON (h.host_id = 1.host_id)
+    l.created_at,
+    GREATEST(l.updated_at, h.updated_at) as updated_at
+FROM l
+LEFT JOIN h ON (h.host_id = l.host_id)
