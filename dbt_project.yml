@@ -37,6 +37,6 @@ models:
     dim:
       +materialized: table # default materialization for dim folder is table!!
     src:
-      +materialized: ephemeral  # default materialization for dim folder is CTE!!
+      +materialized: ephemeral  # default materialization for dim folder is CTE (temp table)!!
 
 
